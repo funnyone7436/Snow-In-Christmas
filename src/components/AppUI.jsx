@@ -105,7 +105,7 @@ export default function AppUI({ motionValue, isGameActive }) {
           fontWeight: 'bold',
           zIndex: 1000
       }}>
-        Christmas Dancing
+        Dancing in the Christmas Snow
       </div>
 
       <div style={{
