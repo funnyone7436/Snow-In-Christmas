@@ -17,7 +17,7 @@ const SantaCar = forwardRef(({
   ...props 
 }, ref) => {
   const meshRef = useRef()
-  const { nodes } = useGLTF('/glb/santa_car_v50.glb')
+  const { nodes } = useGLTF(`${import.meta.env.BASE_URL}glb/santa_car_v50.glb`)
 
   // 2. This links the internal meshRef to the 'ref' passed from App.jsx
   useImperativeHandle(ref, () => meshRef.current)
@@ -91,6 +91,6 @@ const SantaCar = forwardRef(({
   )
 })
 
-useGLTF.preload('/glb/santa_car_v50.glb')
+useGLTF.preload(`${import.meta.env.BASE_URL}glb/santa_car_v50.glb`)
 
 export default SantaCar

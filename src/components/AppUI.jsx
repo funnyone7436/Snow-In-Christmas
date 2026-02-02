@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { loadAudioAndBeats, getAudio } from '../utils/AudioManager'
-
+const BASE = import.meta.env.BASE_URL;
 const SCORE_MULTIPLIER = 0.2
 const GAME_LOOP_FPS = 1; 
 const FRAME_DELAY_MS = 1000 / GAME_LOOP_FPS;

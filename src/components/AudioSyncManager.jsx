@@ -4,7 +4,8 @@ import DancingCircles from './DancingCircles'
 import BackgroundSync from './BackgroundSync'
 
 export default function AudioSyncManager({ children, motionValue = 0, onFirstLoopComplete }) {
-  const audio = useMemo(() => new Audio('/r3f/music/Countdown.mp3'), [])
+  const BASE = import.meta.env.BASE_URL; //
+  const audio = useMemo(() => new Audio(`${BASE}r3f/music/Countdown.mp3`), [BASE]);
   const [songData, setSongData] = useState(null)
   const [hasStarted, setHasStarted] = useState(false)
   const currentFrameRef = useRef(null)
@@ -14,14 +15,14 @@ export default function AudioSyncManager({ children, motionValue = 0, onFirstLoo
   const loopSignaledRef = useRef(false)
 
   useEffect(() => {
-    fetch('/r3f/music/Countdown_final.json')
+    fetch(`${BASE}r3f/music/Countdown_final.json`)
       .then(res => res.json())
       .then(data => setSongData(data))
       .catch(err => console.error("❌ JSON Error:", err))
 
     audio.loop = true
     return () => audio.pause()
-  }, [audio])
+  }, [audio, BASE])
 
   useEffect(() => {
     if (!hasStarted && motionValue > 0.1) {
