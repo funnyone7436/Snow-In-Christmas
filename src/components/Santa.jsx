@@ -56,5 +56,6 @@ const Santa = forwardRef(({
   )
 })
 
-useGLTF.preload(`${import.meta.env.BASE_URL}glb/Santa.glb')
+useGLTF.preload(`${import.meta.env.BASE_URL}glb/Santa.glb`)
+
 export default Santa
