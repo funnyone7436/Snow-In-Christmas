@@ -9,32 +9,28 @@ const Santa = forwardRef(({
   height = -14, 
   scale = 0.55, 
   rotationOffset = 0,
-  currentFrameRef, // New prop to receive audio data
+  currentFrameRef, 
   ...props 
 }, ref) => {
-  const { nodes } = useGLTF(`${import.meta.env.BASE_URL}glb/Santa.glb')
+  // FIXED: Changed the closing quote to a backtick ` to match the opening backtick
+  const { nodes } = useGLTF(`${import.meta.env.BASE_URL}glb/Santa.glb`)
   
-  // Animation settings moved here
   const config = { threshold: 0.2, power: 2, lerp: 0.1 }
   const targetY = useRef(height)
 
-  // Math for the original spot
   const x = radius * Math.sin(angle)
   const z = radius * Math.cos(angle)
 
   useFrame(() => {
-    // Only animate if we have a frame and a ref
     if (!currentFrameRef?.current || !ref?.current) return
 
     const frame = currentFrameRef.current
     const beat = frame.audio?.beat || 0
 
-    // Calculate the jump target
     targetY.current = beat > config.threshold 
       ? height + (beat * config.power) 
       : height
 
-    // Apply smooth movement
     ref.current.position.y = THREE.MathUtils.lerp(
       ref.current.position.y, 
       targetY.current, 
