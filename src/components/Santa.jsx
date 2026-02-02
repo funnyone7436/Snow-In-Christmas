@@ -12,7 +12,7 @@ const Santa = forwardRef(({
   currentFrameRef, // New prop to receive audio data
   ...props 
 }, ref) => {
-  const { nodes } = useGLTF('/glb/Santa.glb')
+  const { nodes } = useGLTF(`${import.meta.env.BASE_URL}glb/Santa.glb')
   
   // Animation settings moved here
   const config = { threshold: 0.2, power: 2, lerp: 0.1 }
