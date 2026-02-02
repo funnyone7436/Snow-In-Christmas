@@ -120,7 +120,7 @@ export default function AppUI({ motionValue, isGameActive }) {
         zIndex: 1000
       }}>
         <div>🔐 No worries, just fun!</div>
-        <a href="https://github.com/your-repo" target="_blank" style={{ color: '#61dafb' }}>🔍 View full source</a>
+        <a href="https://github.com/funnyone7436/Snow-In-Christmas" target="_blank" style={{ color: '#61dafb' }}>🔍 View full source</a>
       </div>
     </>
   )
