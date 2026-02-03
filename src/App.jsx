@@ -1,7 +1,7 @@
 import React, { Suspense, useState, useRef } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { PerspectiveCamera } from '@react-three/drei'
-import { Leva } from 'leva'
+import { Leva } from 'leva' 
 
 import BackgroundSphere from './components/BackgroundSphere'
 import CameraController from './components/CameraController'
